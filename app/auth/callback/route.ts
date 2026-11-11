@@ -11,11 +11,11 @@ export async function GET(request: Request) {
       cookies: {
         getAll: () => cookieStore.getAll(),
         setAll: (items) => {
-       items.forEach(({ name, value, options }) => {
-         cookieStore.set(name, value, options);
-       });
-     },
-    });
+          items.forEach(({ name, value, options }) => {
+            cookieStore.set(name, value, options);
+          });
+        },
+      },
     await client.auth.exchangeCodeForSession(code);
   }
   return NextResponse.redirect(new URL('/', origin));
